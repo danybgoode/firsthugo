@@ -1,17 +1,20 @@
-{{ define "main" }}
-	{{ if not .Site.Params.about.hide }}
-		{{ partial "about" . }}
-	{{ end }}
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body id="page-top" class="index">
 
-	{{ if not .Site.Params.portfolio.hide }}
-		{{ partial "portfolio" . }}
-	{{ end }}
+        {{ partial "nav.html" . }}
 
-	{{ if not .Site.Params.recentposts.hide }}
-		{{ partial "recent-posts" . }}
-	{{ end }}
+        {{ partial "header.html" . }}
+        {{ partial "portfolio-grid.html" . }}
+        {{ partial "about.html" . }}
+        {{ partial "contact.html" . }}
 
-	{{ if not .Site.Params.contact.hide }}
-		{{ partial "contact" . }}
-	{{ end }}
-{{ end }}
+        {{ partial "footer.html" . }}
+        {{ partial "modals.html" . }}
+        {{ partial "js.html" . }}
+
+    </body>
+</html>
